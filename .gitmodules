@@ -1,0 +1,4 @@
+[submodule "iot-edge-module"]
+	path = iot-edge-module
+	url = https://github.com/Azure/dotnet-template-azure-iot-edge-module.git
+	branch = master

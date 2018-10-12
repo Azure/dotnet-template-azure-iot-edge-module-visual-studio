@@ -16,7 +16,7 @@ dir "$currentworkdirectory$csharpmodulepath$csharpmodulebinarypath";
 $iotedgevstemplatesprojbranch=$env:IOTEDGEVSTEMPLATESPROJBRANCH
 $iotedgevstemplatesprojgitpath=$env:IOTEDGEVSTEMPLATESPROJGITPATH
 cd ..
-git clone $iotedgevstemplatesprojbranch
+git clone $iotedgevstemplatesprojgitpath
 cd "iot-edge-visual-studio-templates"
 git checkout $iotedgevstemplatesprojbranch
 $rootworkdirectory= Split-Path -Parent $currentworkdirectory

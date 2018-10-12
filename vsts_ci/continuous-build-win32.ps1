@@ -25,10 +25,12 @@ $csharptemplatefullpath = Join-Path $rootworkdirectory $csharptemplatepath
 Copy-Item -Path $newzipfilefullPath -Destination $csharptemplatefullpath
 dir $csharptemplatefullpath
 $gittoken = $env:GITPERSONALACCESSTOKEN
+$gitusername = $env:GITUSERNAME
+$gituseremail = $env:GITUSEREMAIL
 $iotedgevstemplatesprojuri = $iotedgevstemplatesprojgitpath -replace "https://"
-$originurl = "https://$env:GITUSERNAME:$gittoken@$iotedgevstemplatesprojuri"
-git config --global user.name $env:GITUSERNAME
-git config --global user.email $env:GITUSEREMAIL
+$originurl = "https://$gitusername"+":"+"$gittoken"+"@"+"$iotedgevstemplatesprojuri"
+git config --global user.name $gitusername
+git config --global user.email $gituseremail
 git config --system --unset credential.helper
 git add .
 git commit -m "upload new azure iot edge module zip file"

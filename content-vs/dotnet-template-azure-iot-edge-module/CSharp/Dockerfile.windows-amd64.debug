@@ -1,0 +1,12 @@
+# escape=`
+FROM microsoft/dotnet:2.1-runtime-nanoserver-1809
+
+ARG VS_REMOTE_DEBUGGER_PATH
+ARG VS_OUT_DIR
+
+ADD $VS_REMOTE_DEBUGGER_PATH "c:\windows"
+
+WORKDIR c:\app
+ADD .\out .
+
+ENTRYPOINT start /B msvsmon.exe /noauth /anyuser /silent /nostatus /noclrwarn /nosecuritywarn /nofirewallwarn /nowowwarn /timeout:36000 && dotnet IotEdgeModule1.dll

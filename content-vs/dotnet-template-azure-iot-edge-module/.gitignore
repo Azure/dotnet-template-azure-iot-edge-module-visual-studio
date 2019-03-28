@@ -4,6 +4,7 @@ CSharp/Dockerfile*
 CSharp/Program.cs
 CSharp/SampleModule.csproj
 CSharp/.gitignore
+CSharp/module.json
 
 # vs temp files
 **/*.user

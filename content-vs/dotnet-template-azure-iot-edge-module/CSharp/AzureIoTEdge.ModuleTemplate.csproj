@@ -71,7 +71,15 @@
     <None Include="..\..\..\iot-edge-module\content\dotnet-template-azure-iot-edge-module\CSharp\Dockerfile.windows-amd64">
       <Link>Dockerfile.windows-amd64</Link>
     </None>
-    <None Include="module.json" />
+    <None Include="..\..\..\iot-edge-module\content\dotnet-template-azure-iot-edge-module\CSharp\Dockerfile.arm32v7">
+      <Link>Dockerfile.arm32v7</Link>
+    </None>
+    <None Include="..\..\..\iot-edge-module\content\dotnet-template-azure-iot-edge-module\CSharp\Dockerfile.arm32v7.debug">
+      <Link>Dockerfile.arm32v7.debug</Link>
+    </None>
+    <None Include="..\..\..\iot-edge-module\content\dotnet-template-azure-iot-edge-module\CSharp\module.json">
+      <Link>module.json</Link>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\..\iot-edge-module\content\dotnet-template-azure-iot-edge-module\CSharp\Program.cs">
@@ -93,10 +101,12 @@
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(VSToolsPath)\VSSDK\Microsoft.VsSDK.targets" Condition="'$(VSToolsPath)' != ''" />
   <PropertyGroup>
-    <PreBuildEvent>xcopy /Y "$(ProjectDir)..\..\..\iot-edge-module\content\dotnet-template-azure-iot-edge-module\CSharp\Dockerfile*" "$(ProjectDir)"
-xcopy /Y "$(ProjectDir)..\..\..\iot-edge-module\content\dotnet-template-azure-iot-edge-module\CSharp\Program.cs" "$(ProjectDir)"
-xcopy /Y "$(ProjectDir)..\..\..\iot-edge-module\content\dotnet-template-azure-iot-edge-module\CSharp\SampleModule.csproj" "$(ProjectDir)"
-xcopy /Y "$(ProjectDir)..\..\..\iot-edge-module\content\dotnet-template-azure-iot-edge-module\CSharp\.gitignore" "$(ProjectDir)"</PreBuildEvent>
+    <PreBuildEvent>
+      xcopy /Y "$(ProjectDir)..\..\..\iot-edge-module\content\dotnet-template-azure-iot-edge-module\CSharp\Dockerfile*" "$(ProjectDir)"
+      xcopy /Y "$(ProjectDir)..\..\..\iot-edge-module\content\dotnet-template-azure-iot-edge-module\CSharp\Program.cs" "$(ProjectDir)"
+      xcopy /Y "$(ProjectDir)..\..\..\iot-edge-module\content\dotnet-template-azure-iot-edge-module\CSharp\module.json" "$(ProjectDir)"
+      xcopy /Y "$(ProjectDir)..\..\..\iot-edge-module\content\dotnet-template-azure-iot-edge-module\CSharp\SampleModule.csproj" "$(ProjectDir)"
+      xcopy /Y "$(ProjectDir)..\..\..\iot-edge-module\content\dotnet-template-azure-iot-edge-module\CSharp\.gitignore" "$(ProjectDir)"</PreBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
